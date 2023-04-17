@@ -1,58 +1,37 @@
 <?php
+function fibonacci(){
+    $Array = [0,1];
 
-// function fibo34($endpoint)
-// {
-//     $fiboSequence = [0, 1];
+    for($i=2;$i<10;$i++){
+        $Array[$i] = $Array[$i-1] + $Array[$i-2];
+    }
 
-//     for($position = 2; $position <= $endpoint ;$position++){
-
-//         $fiboSequence[$position] = $fiboSequence[$position-1] + $fiboSequence[$position-2];
-
-//     }
-
-//     return $fiboSequence;
-
-// };
-
-// print_r(fibo34(9));
-
-
-echo "Task 2.1 </br>";
-echo "</br> answer: ";
-$a = 0;
-$b = 1;
-echo $a . "\n";
-while ($b <= 34) {
-    echo $b . "\n";
-    $temp = $a;
-    $a = $b;
-    $b = $temp + $b;
+    return $Array;
 }
+echo "Task 2.1 </br>";
+echo "</br> answer: " ;
+
+print_r(fibonacci());
+
 echo "</br>";
 echo "</br>";
 ////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Task 2.2 </br>";
 
-function fibonacci($n) {
+function fibonacciRec($n) {
     if ($n == 0 || $n == 1) {
         return $n;
     } else {
-        return fibonacci($n - 1) + fibonacci($n - 2);
+        return fibonacciRec($n - 1) + fibonacciRec($n - 2);
     }
 }
 
-
 echo "</br> answer: ";
+
 for ($i = 0; $i <= 9; $i++) {
-    echo fibonacci($i) . "\n";
+    echo fibonacciRec($i) . "\n";
 }
 echo "</br>";
 echo "</br>";
 
-// function fibonacci($n) {
-//     return ($n < 2) ? $n : fibonacci($n - 1) + fibonacci($n - 2);
-// }
-
-// for ($i = 0; $i <= 34; $i++) {
-//     echo fibonacci($i) . "\n";
-// }
+?>
