@@ -18,18 +18,18 @@ echo "</br>";
 ////////////////////////////////////////////////////////////////////////////////////////////////
 echo "Task 2.2 </br>";
 
-function fibonacciRec($n) {
-    if ($n == 0 || $n == 1) {
-        return $n;
+function fibonacciRec($position) {
+    if ($position == 0 || $position == 1) {
+        return $position;
     } else {
-        return fibonacciRec($n - 1) + fibonacciRec($n - 2);
+        return fibonacciRec($position - 1) + fibonacciRec($position - 2);
     }
 }
 
 echo "</br> answer: ";
 
-for ($i = 0; $i <= 9; $i++) {
-    echo fibonacciRec($i) . "\n";
+for ($iteration = 0; $iteration <= 9; $iteration++) {
+    echo fibonacciRec($iteration) . "\n";
 }
 echo "</br>";
 echo "</br>";
