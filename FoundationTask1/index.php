@@ -6,14 +6,54 @@
 // For example: For the array [1,1,1,1,1], the result should be 15 -> 5+4+3+2+1=15
 // Optimize your solution as far as possible.
 
+
+//ATTEMPT 1
+// function addAll($Array)
+// {
+//     $sum = 0;
+//     while (!empty($Array)) {
+//         $sum += sizeof($Array);
+//         array_shift($Array);
+//     }
+//     return $sum;
+// }
+
+// $Array = [1, 1, 1, 1, 1,14]; //5+4+3+2+1=15
+// echo "Task 1.1 </br>";
+// echo "answer: " . addAll($Array);
+// echo "</br>";
+// echo "</br>";
+// $sum = 0;
+// function addAllRecursive($Array)
+// {
+
+//     if (empty($Array)) {
+//         return;
+//     } else {
+//         global $sum;
+//         $sum += sizeof($Array);
+//         array_shift($Array);
+//         addAllRecursive($Array);
+//         return $sum;
+//     };
+// }
+// echo "</br>";
+// $Array2 = [1, 1, 1, 1, 1]; //5+4+3+2+1=15
+// echo "Task 1.2 </br>";
+// echo "answer: " . addAllRecursive($Array2);
+
+//ATTEMPT 2
 function addAll($Array)
 {
-    $sum = 0;
+    $IntegerSum = 0;
     while (!empty($Array)) {
-        $sum += sizeof($Array);
+        for ($IntegerIndex = 0; $IntegerIndex <= sizeof($Array) - 1; $IntegerIndex++) {
+            $IntegerSum += $Array[$IntegerIndex];
+        }
+
         array_shift($Array);
     }
-    return $sum;
+    return $IntegerSum;
 }
 
 $Array = [1, 1, 1, 1, 1]; //5+4+3+2+1=15
@@ -21,22 +61,21 @@ echo "Task 1.1 </br>";
 echo "answer: " . addAll($Array);
 echo "</br>";
 echo "</br>";
-$sum = 0;
-function addAllRecursive($Array)
-{
-    
+
+function addAllRecursive($Array, $IntegerSum = 0) {
     if (empty($Array)) {
-        return;
+      return $IntegerSum;
     } else {
-        global $sum;
-        $sum += sizeof($Array);
-        array_shift($Array);
-        addAllRecursive($Array);
-        return $sum;
-    };
-}
+      $IntegerSum += array_sum($Array);
+      array_shift($Array);
+      return addAllRecursive($Array, $IntegerSum);
+    }
+  }
+  
+  $Array = [1,1,1,1,1];  //5+4+3+2+1=15
+;
+  
 echo "</br>";
 $Array2 = [1, 1, 1, 1, 1]; //5+4+3+2+1=15
 echo "Task 1.2 </br>";
 echo "answer: " . addAllRecursive($Array2);
-?>
