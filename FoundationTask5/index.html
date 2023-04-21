@@ -6,15 +6,15 @@
 <body>
 	<h1>Fibonacci Sequence</h1>
 	<form>
-		<label for="max_num">Enter a number:</label>
-		<input type="number" id="max_num" name="max_num">
+		<label for="IntMaxNum">Enter a number:</label>
+		<input type="number" id="IntMaxNum" name="IntMaxNum">
 		<button type="button" onclick="generateSequence()">Generate Sequence</button>
 	</form>
 	<div id="result"></div>
 
 	<script>
 		function generateSequence() {
-			let max_num = document.getElementById("max_num").value;
+			let IntMaxNum = document.getElementById("IntMaxNum").value;
 
 			let xhr = new XMLHttpRequest();
 			xhr.open("POST", "fibonacci.php", true);
@@ -24,7 +24,7 @@
 					document.getElementById("result").innerHTML = this.responseText;
 				}
 			};
-			xhr.send("max_num=" + max_num);
+			xhr.send("IntMaxNum=" + IntMaxNum);
 		}
 	</script>
 </body>
