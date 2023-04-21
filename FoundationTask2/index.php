@@ -57,7 +57,7 @@ function fibonacci_rec($IntValue) {
     }
 }
 
-$IntegerValue = 0;
+$IntValue = 0;
 while (fibonacci_rec($IntValue) <= 34) {
     echo fibonacci_rec($IntValue) . " ";
     $IntValue++;
