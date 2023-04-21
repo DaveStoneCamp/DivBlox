@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$max_num = $_POST["max_num"];
+	$IntMaxNum = $_POST["IntMaxNum"];
 
-	$first_num = 0;
-	$second_num = 1;
-	$next_num = 0;
+	$IntFirstNum = 0;
+	$IntSecondNum = 1;
+	$IntNextNum = 0;
 
-	$output = $first_num . " " . $second_num . " ";
+	$IntOutput = $IntFirstNum . " " . $IntSecondNum . " ";
 
-	while ($next_num < $max_num) {
-	    $next_num = $first_num + $second_num;
-	    $output .= $next_num . " ";
+	while ($IntNextNum < $IntMaxNum) {
+	    $IntNextNum = $IntFirstNum + $IntSecondNum;
+	    $IntOutput .= $IntNextNum . " ";
 
-	    $first_num = $second_num;
-	    $second_num = $next_num;
+	    $IntFirstNum = $IntSecondNum;
+	    $IntSecondNum = $IntNextNum;
 	}
 
-	echo $output;
+	echo $IntOutput;
 }
 ?>
