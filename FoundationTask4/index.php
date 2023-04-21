@@ -1,27 +1,27 @@
 <?php
-class ItemOwners
-{
-    public static function groupByOwners($itemsArr)
-    {
-        $result = array();
-        foreach ($itemsArr as $item => $owner) {
-            if (array_key_exists($owner, $result)) {
-                array_push($result[$owner], $item);
+class ItemOwners{
+    static function groupByOwners($ItemsArr){
+        $ArrResult = array();
+        foreach ($ItemsArr as $Item => $Owner) {
+            if (array_key_exists($Owner, $ArrResult)) {
+                array_push($ArrResult[$Owner], $Item);
             } else {
-                $result[$owner] = array($item);
+                $ArrResult[$Owner] = array($Item);
             }
         }
-        return $result;
+        return $ArrResult;
     }
 }
 
 $ItemsArr = array(
     "Baseball Bat" => "John",
+    "Stan" => "Cap",
     "Golf ball" => "Stan",
-    "Tennis Racket" => "John"
+    "Tennis Racket" => "John",
+    "Squash Racket" => "John",
+    "Squash Racket" => "Stan"
 );
 
 echo json_encode(ItemOwners::groupByOwners($ItemsArr));
-
-
+//Coding Standards
 ?>
